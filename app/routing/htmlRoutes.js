@@ -2,7 +2,8 @@
 var path = require("path");
 
 // Routing to HTML page content
-module.exports = function(app) {
+module.exports = (app) => {
+
     app.get("*", function(req, res) {
         res.sendFile(path.join(__dirname, "../public/home.html"));
     });
