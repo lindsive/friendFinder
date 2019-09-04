@@ -6,6 +6,7 @@
     <title>FriendFinder Survey</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery.js"></script>
 
     <!-- RESET CSS -->
     <!-- DESIGN CSS -->
@@ -17,17 +18,17 @@
     <!-- About -->
     <h2>About You</h2>
     <h3>
-        Name: <br><input type="text" name="name" required><br>
-        Link to Photo: <br><input type="text" name="photo" required><br>
+        Name: <br><input type="text" name="name" id="name" required><br>
+        Link to Photo: <br><input type="text" name="photo" id="photo" "required><br>
     </h3>
     <hr>
     <!-- Survey Questions -->
 
     <div class="questions">
-        <div class="q1">
+        <div>
             <h2>Question 1</h2>
             <h3>You prefer to stay home & watch movies over going out & partying.</h3>
-            <select required>
+            <select required id="q1">
                 <option value="" disabled selected>Select Opinion</option>
                 <option value=1>1 (Strongly Disagree)</option>
                 <option value=2>2</option>
@@ -37,10 +38,10 @@
             </select>
         </div>
 
-        <div class="q2">
+        <div>
             <h2>Question 2</h2>
             <h3>Being around a big group of people is exhausting.</h3>
-            <select required>
+            <select required id="q2">
                 <option value="" disabled selected>Select Opinion</option>
                 <option value=1>1 (Strongly Disagree)</option>
                 <option value=2>2</option>
@@ -50,10 +51,10 @@
             </select>
         </div>
 
-        <div class="q3">
+        <div>
             <h2>Question 3</h2>
             <h3>You enjoy reading non-fiction books.</h3>
-            <select required>
+            <select required id="q3">
                 <option value="" disabled selected>Select Opinion</option>
                 <option value=1>1 (Strongly Disagree)</option>
                 <option value=2>2</option>
@@ -63,10 +64,10 @@
             </select>
         </div>
 
-        <div class="q4">
+        <div>
             <h2>Question 4</h2>
             <h3>You would rather watch a romantic comedy instead of an action movie.</h3>
-            <select required>
+            <select required id="q4">
                 <option value="" disabled selected>Select Opinion</option>
                 <option value=1>1 (Strongly Disagree)</option>
                 <option value=2>2</option>
@@ -76,10 +77,10 @@
             </select>
         </div>
 
-        <div class="q5">
+        <div>
             <h2>Question 5</h2>
             <h3>You would rather plan a trip down to the last detail over simply winging it.</h3>
-            <select required>
+            <select required id="q5">
                 <option value="" disabled selected>Select Opinion</option>
                 <option value=1>1 (Strongly Disagree)</option>
                 <option value=2>2</option>
@@ -89,10 +90,10 @@
             </select>
         </div>
 
-        <div class="q6">
+        <div>
             <h2>Question 6</h2>
             <h3>Meeting new people is fun and stress-free.</h3>
-            <select required>
+            <select required id="q6">
                 <option value="" disabled selected>Select Opinion</option>
                 <option value=1>1 (Strongly Disagree)</option>
                 <option value=2>2</option>
@@ -102,10 +103,10 @@
             </select>
         </div>
 
-        <div class="q7">
+        <div>
             <h2>Question 7</h2>
             <h3>You are very detail oriented.</h3>
-            <select required>
+            <select required id="q7">
                 <option value="" disabled selected>Select Opinion</option>
                 <option value=1>1 (Strongly Disagree)</option>
                 <option value=2>2</option>
@@ -115,10 +116,10 @@
             </select>
         </div>
 
-        <div class="q8">
+        <div>
             <h2>Question 8</h2>
             <h3>You are able to stay calm while under pressure.</h3>
-            <select required>
+            <select required id="q8">
                 <option value="" disabled selected>Select Opinion</option>
                 <option value=1>1 (Strongly Disagree)</option>
                 <option value=2>2</option>
@@ -128,10 +129,10 @@
             </select>
         </div>
 
-        <div class="q9">
+        <div>
             <h2>Question 9</h2>
             <h3>You view life with a glass-half-full kind of perspective.</h3>
-            <select required>
+            <select required id="q9">
                 <option value="" disabled selected>Select Opinion</option>
                 <option value=1>1 (Strongly Disagree)</option>
                 <option value=2>2</option>
@@ -141,10 +142,10 @@
             </select>
         </div>
 
-        <div class="q10">
+        <div>
             <h2>Question 10</h2>
             <h3>You believe that Pepsi is better than Coca Cola.</h3>
-            <select required>
+            <select id="q10" required>
                 <option value="" disabled selected>Select Opinion</option>
                 <option value=1>1 (Strongly Disagree)</option>
                 <option value=2>2</option>
@@ -155,13 +156,45 @@
         </div>
     </div>
 
+    <br>
+
+    <div>
+        <button id="submit">Submit</button>
+    </div>
+    
     <footer>
         <p>
-            <a href="LINK TO FRIEND LIST API">API Friends List</a>
-            |
-            <a href="LINK TO GITHUB REPO">GitHub Repo</a>
+            <a href="../data/friends.js">API Friends List</a>
+             | 
+            <a href="https://github.com/lindsive/friendFinder">GitHub Repo</a>
         </p>
     </footer>
+
+    <script type="text/javascript">
+        $("#submit").on("click", function(event) {
+            event.preventDefault();
+
+            var newFriend = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                answers: [
+                    $("select#q1 option:checked").val(),
+                    $("select#q2 option:checked").val(),
+                    $("select#q3 option:checked").val(),
+                    $("select#q4 option:checked").val(),
+                    $("select#q5 option:checked").val(),
+                    $("select#q6 option:checked").val(),
+                    $("select#q7 option:checked").val(),
+                    $("select#q8 option:checked").val(),
+                    $("select#q9 option:checked").val(),
+                    $("select#q10 option:checked").val(),
+                ]
+            }
+
+
+            console.log(newFriend.answers);
+        })
+    </script>
 </body>
 
 </html>

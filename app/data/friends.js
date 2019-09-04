@@ -13,7 +13,6 @@ var friendData = [{
         4,
         1
       ]
-  },
+  }
 
-  
 ];
