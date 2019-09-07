@@ -3,7 +3,7 @@ var express = require("express");
 var path = require("path");
 
 var app = express();
-var PORT = 3000;
+var PORT = 8080;
 
 // Allows Express to handle parsing the data 
 app.use(express.urlencoded({ extended: true }));
@@ -13,5 +13,5 @@ require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app);
 
 app.listen(PORT, () => {
-    console.log("App listening on PORT: ");
+    console.log("App listening on PORT: " + PORT);
 });

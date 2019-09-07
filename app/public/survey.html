@@ -19,12 +19,12 @@
     <h2>About You</h2>
     <h3>
         Name: <br><input type="text" name="name" id="name" required><br>
-        Link to Photo: <br><input type="text" name="photo" id="photo" "required><br>
+        Link to Photo: <br><input type="text" name="photo" id="photo"><br>
     </h3>
     <hr>
     <!-- Survey Questions -->
 
-    <div class="questions">
+    <div class=" questions">
         <div>
             <h2>Question 1</h2>
             <h3>You prefer to stay home & watch movies over going out & partying.</h3>
@@ -154,47 +154,58 @@
                 <option value=5>5 (Strongly Agree)</option>
             </select>
         </div>
-    </div>
+        </div>
 
-    <br>
+        <br>
 
-    <div>
-        <button id="submit">Submit</button>
-    </div>
-    
-    <footer>
-        <p>
-            <a href="../data/friends.js">API Friends List</a>
-             | 
-            <a href="https://github.com/lindsive/friendFinder">GitHub Repo</a>
-        </p>
-    </footer>
+        <div>
+            <button id="submit">Submit</button>
+        </div>
 
-    <script type="text/javascript">
-        $("#submit").on("click", function(event) {
-            event.preventDefault();
+        <footer>
+            <p>
+                <a href="../data/friends.js">API Friends List</a>
+                |
+                <a href="https://github.com/lindsive/friendFinder">GitHub Repo</a>
+            </p>
+        </footer>
 
-            var newFriend = {
-                name: $("#name").val().trim(),
-                photo: $("#photo").val().trim(),
-                answers: [
-                    $("select#q1 option:checked").val(),
-                    $("select#q2 option:checked").val(),
-                    $("select#q3 option:checked").val(),
-                    $("select#q4 option:checked").val(),
-                    $("select#q5 option:checked").val(),
-                    $("select#q6 option:checked").val(),
-                    $("select#q7 option:checked").val(),
-                    $("select#q8 option:checked").val(),
-                    $("select#q9 option:checked").val(),
-                    $("select#q10 option:checked").val(),
-                ]
-            }
+        <script type="text/javascript">
+            $("#submit").on("click", function (event) {
+                event.preventDefault();
 
+                var newFriend = {
+                    name: $("#name").val().trim(),
+                    photo: $("#photo").val().trim(),
+                    answers: [
+                        $("select#q1 option:checked").val(),
+                        $("select#q2 option:checked").val(),
+                        $("select#q3 option:checked").val(),
+                        $("select#q4 option:checked").val(),
+                        $("select#q5 option:checked").val(),
+                        $("select#q6 option:checked").val(),
+                        $("select#q7 option:checked").val(),
+                        $("select#q8 option:checked").val(),
+                        $("select#q9 option:checked").val(),
+                        $("select#q10 option:checked").val(),
+                    ]
+                }
+                // const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-            console.log(newFriend.answers);
-        })
-    </script>
+                // console.log(arr.reduce(reducer));
+
+                // const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+                // console.log(arr.reduce(reducer));
+
+                var stringArr = newFriend.answers
+                const arr = stringArr.splice().join();
+                const add = (a, b) =>
+                a+b;
+
+                const sum = arr.reduce(add)
+            });
+        </script>
 </body>
 
 </html>
