@@ -155,95 +155,104 @@
                 <option value=5>5 (Strongly Agree)</option>
             </select>
         </div>
-        </div>
+    </div>
 
-        <br>
+    <br>
 
-        <div>
-            <button id="submit">Submit</button>
-        </div>
+    <div>
+        <button id="submit">Submit</button>
+    </div>
 
-        <footer>
-            <p>
-                <a href="../data/friends.js">API Friends List</a>
-                |
-                <a href="https://github.com/lindsive/friendFinder">GitHub Repo</a>
-            </p>
-        </footer>
+    <footer>
+        <p>
+            <a href="../data/friends.js">API Friends List</a>
+            |
+            <a href="https://github.com/lindsive/friendFinder">GitHub Repo</a>
+        </p>
+    </footer>
 
-        <script>
-            $("#submit").on("click", function (event) {
-                event.preventDefault();
+    <script>
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
 
-                var newFriend = {
-                    name: $("#name").val().trim(),
-                    photo: $("#photo").val().trim(),
-                    answers: [
-                        $("select#q1 option:checked").val(),
-                        $("select#q2 option:checked").val(),
-                        $("select#q3 option:checked").val(),
-                        $("select#q4 option:checked").val(),
-                        $("select#q5 option:checked").val(),
-                        $("select#q6 option:checked").val(),
-                        $("select#q7 option:checked").val(),
-                        $("select#q8 option:checked").val(),
-                        $("select#q9 option:checked").val(),
-                        $("select#q10 option:checked").val(),
-                    ]
-                }
-                // const reducer = (accumulator, currentValue) => accumulator + currentValue;
+            var newFriend = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                answers: [
+                    $("select#q1 option:checked").val(),
+                    $("select#q2 option:checked").val(),
+                    $("select#q3 option:checked").val(),
+                    $("select#q4 option:checked").val(),
+                    $("select#q5 option:checked").val(),
+                    $("select#q6 option:checked").val(),
+                    $("select#q7 option:checked").val(),
+                    $("select#q8 option:checked").val(),
+                    $("select#q9 option:checked").val(),
+                    $("select#q10 option:checked").val(),
+                ]
+            }
+            // const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-                // console.log(arr.reduce(reducer));
+            // console.log(arr.reduce(reducer));
 
-                // const reducer = (accumulator, currentValue) => accumulator + currentValue;
+            // const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
-                // console.log(arr.reduce(reducer));
+            // console.log(arr.reduce(reducer));
 
-                // var stringArr = newFriend.answers
-                // const arr = stringArr.splice().join();
-                // const add = (a, b) =>
-                // a+b;
+            // var stringArr = newFriend.answers
+            // const arr = stringArr.splice().join();
+            // const add = (a, b) =>
+            // a+b;
 
-                // const sum = arr.reduce(add)
+            // const sum = arr.reduce(add)
 
-                // console.log(Number(newFriend.answers[0]))
-                var a1 = Number(newFriend.answers[0])
-                var a2 = Number(newFriend.answers[1])
-                var a3 = Number(newFriend.answers[2])
-                var a4 = Number(newFriend.answers[3])
-                var a5 = Number(newFriend.answers[4])
-                var a6 = Number(newFriend.answers[5])
-                var a7 = Number(newFriend.answers[6])
-                var a8 = Number(newFriend.answers[7])
-                var a9 = Number(newFriend.answers[8])
-                var a10 = Number(newFriend.answers[9])
+            // console.log(Number(newFriend.answers[0]))
+            var a1 = Number(newFriend.answers[0])
+            var a2 = Number(newFriend.answers[1])
+            var a3 = Number(newFriend.answers[2])
+            var a4 = Number(newFriend.answers[3])
+            var a5 = Number(newFriend.answers[4])
+            var a6 = Number(newFriend.answers[5])
+            var a7 = Number(newFriend.answers[6])
+            var a8 = Number(newFriend.answers[7])
+            var a9 = Number(newFriend.answers[8])
+            var a10 = Number(newFriend.answers[9])
 
-                numArr = [];
+            numArr = [];
 
-                numArr.push(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10);
+            numArr.push(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10);
 
-                console.log(numArr);
+            console.log(numArr);
+
+            var add = (a, b) => a + b
+
+            var arrSum = numArr.reduce(add);
+
+            console.log(arrSum);
+            
+
+            // const numbers = [10, 20, 30, 40] // sums to 100
+            // // function for adding two numbers. Easy!
+            // const add = (a, b) =>
+            //     a + b
+            // // use reduce to sum our array
+            // const sum = numbers.reduce(add)
 
 
 
 
-                
-                
-                
-                
-                
-                // console.log(a1);
 
-                // function add(a, b) {
-                //     console.log(a + b);
-                // }
-                
-                // add(a1, a2);
-                // console.log(newFriend.answers[0])
 
-            });
-        </script>
-        
+
+
+            // console.log(a1);
+
+            // add(a1, a2);
+            // console.log(newFriend.answers[0])
+
+        });
+    </script>
+
 </body>
 
 </html>
