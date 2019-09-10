@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery.js"></script>
 
+
     <!-- RESET CSS -->
     <!-- DESIGN CSS -->
 </head>
@@ -170,7 +171,7 @@
             </p>
         </footer>
 
-        <script type="text/javascript">
+        <script>
             $("#submit").on("click", function (event) {
                 event.preventDefault();
 
@@ -198,14 +199,51 @@
 
                 // console.log(arr.reduce(reducer));
 
-                var stringArr = newFriend.answers
-                const arr = stringArr.splice().join();
-                const add = (a, b) =>
-                a+b;
+                // var stringArr = newFriend.answers
+                // const arr = stringArr.splice().join();
+                // const add = (a, b) =>
+                // a+b;
 
-                const sum = arr.reduce(add)
+                // const sum = arr.reduce(add)
+
+                // console.log(Number(newFriend.answers[0]))
+                var a1 = Number(newFriend.answers[0])
+                var a2 = Number(newFriend.answers[1])
+                var a3 = Number(newFriend.answers[2])
+                var a4 = Number(newFriend.answers[3])
+                var a5 = Number(newFriend.answers[4])
+                var a6 = Number(newFriend.answers[5])
+                var a7 = Number(newFriend.answers[6])
+                var a8 = Number(newFriend.answers[7])
+                var a9 = Number(newFriend.answers[8])
+                var a10 = Number(newFriend.answers[9])
+
+                numArr = [];
+
+                numArr.push(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10);
+
+                console.log(numArr);
+
+
+
+
+                
+                
+                
+                
+                
+                // console.log(a1);
+
+                // function add(a, b) {
+                //     console.log(a + b);
+                // }
+                
+                // add(a1, a2);
+                // console.log(newFriend.answers[0])
+
             });
         </script>
+        
 </body>
 
 </html>
