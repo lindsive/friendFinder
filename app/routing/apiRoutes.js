@@ -11,6 +11,6 @@ module.exports = function(app) {
 
     // POST Request
     app.post("/api/survey", function(req, res) {
-        
-    })
-}
+        res.json(req.body);
+    });
+};

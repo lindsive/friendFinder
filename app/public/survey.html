@@ -165,15 +165,31 @@
 
     <footer>
         <p>
-            <a href="../data/friends.js">API Friends List</a>
+            <a href="../api/friends">API Friends List</a>
             |
             <a href="https://github.com/lindsive/friendFinder">GitHub Repo</a>
         </p>
     </footer>
 
     <script>
+
+        
         $("#submit").on("click", function (event) {
             event.preventDefault();
+
+            function getFriendData() {
+                $.ajax({ url: "/api/friends", method: "GET"})
+                    .then((friendData) => {
+                        console.log(friendData[i]);
+                        console.log("=====================");
+        
+                        for (var i = 0; i < friendData.length; i++) {
+                            var add = (a, b) => a + b  
+                            var friendSum = friendData[i].reduce(add); 
+                            console.log(friendSum);
+                        }
+                    })
+                }
 
             var newFriend = {
                 name: $("#name").val().trim(),
@@ -191,6 +207,7 @@
                     $("select#q10 option:checked").val(),
                 ]
             }
+            
             // const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
             // console.log(arr.reduce(reducer));
@@ -229,6 +246,8 @@
             var arrSum = numArr.reduce(add);
 
             console.log(arrSum);
+
+            console.log(getFriendData());
             
 
             // const numbers = [10, 20, 30, 40] // sums to 100
