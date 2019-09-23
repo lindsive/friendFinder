@@ -172,25 +172,42 @@
     </footer>
 
     <script>
-
-        
         $("#submit").on("click", function (event) {
             event.preventDefault();
 
             function getFriendData() {
-                $.ajax({ url: "/api/friends", method: "GET"})
+                $.ajax({
+                        url: "/api/friends",
+                        method: "GET"
+                    })
                     .then((friendData) => {
-                        console.log(friendData[i]);
+                        console.log(friendData);
                         console.log("=====================");
-        
-                        for (var i = 0; i < friendData.length; i++) {
-                            var add = (a, b) => a + b  
-                            var friendSum = friendData[i].reduce(add); 
-                            console.log(friendSum);
+                        for (var i = 0; i < friendData.scores.length; i++) {
+                           var ans1 = friendData.scores[0]
+                            var ans2 = friendData.scores[1]
+                            var ans3 = friendData.scores[2]
+                            var ans4 = friendData.scores[3]
+                            var ans5 = friendData.scores[4]
+                            var ans6 = friendData.scores[5]
+                            var ans7 = friendData.scores[6]
+                            var ans8 = friendData.scores[7]
+                            var ans9 = friendData.scores[8]
+                            var ans10 = friendData.scores[9]
+
+                            ansArr =[]
+
+                            ansArr.push(ans1, ans2, ans3, ans4, ans5, ans6, ans7, ans8, ans9, ans10);
+
+                            console.log(ansArr);
+                            
+
                         }
+
                     })
                 }
-
+                getFriendData();
+                
             var newFriend = {
                 name: $("#name").val().trim(),
                 photo: $("#photo").val().trim(),
@@ -206,69 +223,39 @@
                     $("select#q9 option:checked").val(),
                     $("select#q10 option:checked").val(),
                 ]
-            }
+            };
+
+            $.ajax({
+                    url: "/api/survey",
+                    method: "POST",
+                    data: newFriend
+                })
+                .then((data) => {
+                    console.log(data);
+
+                    
+                    var a1 = Number(newFriend.answers[0])
+                    var a2 = Number(newFriend.answers[1])
+                    var a3 = Number(newFriend.answers[2])
+                    var a4 = Number(newFriend.answers[3])
+                    var a5 = Number(newFriend.answers[4])
+                    var a6 = Number(newFriend.answers[5])
+                    var a7 = Number(newFriend.answers[6])
+                    var a8 = Number(newFriend.answers[7])
+                    var a9 = Number(newFriend.answers[8])
+                    var a10 = Number(newFriend.answers[9])
+                    
+                    numArr = [];
+                    
+                    numArr.push(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10);
+                    
+                    console.log(numArr);
+                    
+                    var add = (a, b) => a + b
+                    
+                    var arrSum = numArr.reduce(add);
+                });
             
-            // const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
-            // console.log(arr.reduce(reducer));
-
-            // const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
-            // console.log(arr.reduce(reducer));
-
-            // var stringArr = newFriend.answers
-            // const arr = stringArr.splice().join();
-            // const add = (a, b) =>
-            // a+b;
-
-            // const sum = arr.reduce(add)
-
-            // console.log(Number(newFriend.answers[0]))
-            var a1 = Number(newFriend.answers[0])
-            var a2 = Number(newFriend.answers[1])
-            var a3 = Number(newFriend.answers[2])
-            var a4 = Number(newFriend.answers[3])
-            var a5 = Number(newFriend.answers[4])
-            var a6 = Number(newFriend.answers[5])
-            var a7 = Number(newFriend.answers[6])
-            var a8 = Number(newFriend.answers[7])
-            var a9 = Number(newFriend.answers[8])
-            var a10 = Number(newFriend.answers[9])
-
-            numArr = [];
-
-            numArr.push(a1, a2, a3, a4, a5, a6, a7, a8, a9, a10);
-
-            console.log(numArr);
-
-            var add = (a, b) => a + b
-
-            var arrSum = numArr.reduce(add);
-
-            console.log(arrSum);
-
-            console.log(getFriendData());
-            
-
-            // const numbers = [10, 20, 30, 40] // sums to 100
-            // // function for adding two numbers. Easy!
-            // const add = (a, b) =>
-            //     a + b
-            // // use reduce to sum our array
-            // const sum = numbers.reduce(add)
-
-
-
-
-
-
-
-
-            // console.log(a1);
-
-            // add(a1, a2);
-            // console.log(newFriend.answers[0])
-
         });
     </script>
 
